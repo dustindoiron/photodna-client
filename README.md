@@ -32,7 +32,7 @@ Report a resource...
 $violation = new PhotoDNA\Violation()
     ->IncidentTime('9/10/2014 9:08:14 PM');
     ->ViolationContentCollection([
-        'Name' => $imageFile->getFilename,
+        'Name' => $imageFile->getFilename(),
         'Value' => $imageFile->getBase64(),
         'UploadIpAddress' => '127.0.0.1',
         // etc
