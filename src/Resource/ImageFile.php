@@ -23,4 +23,11 @@ class ImageFile
     {
         return $this->filename;
     }
+
+    public function closeFile(): void
+    {
+        if ($this->file) {
+            fclose($this->file);
+        }
+    }
 }

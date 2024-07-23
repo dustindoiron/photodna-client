@@ -47,7 +47,13 @@ class Client
             $request->setParameters($image->getResourceParameters());
         }
 
-        return $request->execute();
+        $response = $request->execute();
+
+        if ($image instanceof ImageFile) {
+            $image->closeFile();
+        }
+
+        return $response;
     }
 
     public function report(Reportee $reportee, Reporter $reporter, Violation $violation, bool $isTest = false): Response
