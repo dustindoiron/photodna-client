@@ -16,7 +16,12 @@ class BaseResource
         return $this->values[$name];
     }
 
-    public function __set(string $name, mixed $value): mixed
+    public function __set(string $name, mixed $value)
+    {
+        $this->values[$name] = $value;
+    }
+
+    public function set(string $name, mixed $value): mixed
     {
         $this->values[$name] = $value;
         return $this;
