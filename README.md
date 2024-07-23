@@ -16,8 +16,8 @@ $client = new PhotoDNA\Client($configuration);
 
 Create a resource...
 ```php
-$imageFile = new PhotoDNA\ImageFile('/path/to/location);
-$imageUrl = new PhotoDNA\ImageLocation('https://url.com/file.png');
+$imageFile = new PhotoDNA\Resource\ImageFile('/path/to/location);
+$imageUrl = new PhotoDNA\Resource\ImageLocation('https://url.com/file.png');
 
 $result = $client->match($imageFile);
 // or
@@ -29,7 +29,7 @@ $result = $client->match($imageFile, true);
 Report a resource...
 ```php
 // Fluently set
-$violation = new PhotoDNA\Violation()
+$violation = new PhotoDNA\Resource\Violation()
     ->IncidentTime('9/10/2014 9:08:14 PM');
     ->ViolationContentCollection([
         'Name' => $imageFile->getFilename(),
@@ -37,12 +37,12 @@ $violation = new PhotoDNA\Violation()
         'UploadIpAddress' => '127.0.0.1',
         // etc
     ]);
-$reporter = new PhotoDNA\Reporter()
+$reporter = new PhotoDNA\Resource\Reporter()
     ->OrgName('ExampleOrgName');
     ->ReporterName('Example Reporter')
     ->ReporterEmail('test@example.com');
 
-$reportee = new PhotoDNA\Reportee()
+$reportee = new PhotoDNA\Resource\Reportee()
     ->ReporteeName('Reportee Name')
     ->ReporteeIPAddress('127.0.0.1');
 
