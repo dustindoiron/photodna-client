@@ -2,7 +2,6 @@
 
 namespace PhotoDNA\Resource;
 
-class ImageLocation
+class ImageLocation extends BaseResource
 {
-    
 }
