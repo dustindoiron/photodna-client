@@ -2,6 +2,8 @@
 
 namespace PhotoDNA\Resource;
 
+use TypeError;
+
 class ImageFile
 {
     protected string $filename;
@@ -32,7 +34,10 @@ class ImageFile
     public function closeFile(): void
     {
         if ($this->file) {
-            fclose($this->file);
+            try {
+                fclose($this->file);
+            } catch (TypeError $e) {
+            }
         }
     }
 }
