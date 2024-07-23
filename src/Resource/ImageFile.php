@@ -19,6 +19,11 @@ class ImageFile
         return $this->file;
     }
 
+    public function getBase64()
+    {
+        return base64_encode($this->getFile());
+    }
+
     public function getFilename(): string
     {
         return $this->filename;
